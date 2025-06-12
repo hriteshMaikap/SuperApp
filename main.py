@@ -1,6 +1,11 @@
-def main():
-    print("Hello from superapp!")
+from fastapi import FastAPI
 
+app=FastAPI(title="Auth-Microservice")
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Auth Microservice!"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
